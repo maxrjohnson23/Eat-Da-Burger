@@ -1,4 +1,5 @@
 const connection = require("./config/connection");
+const Burger = require("./models/burger");
 const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
@@ -14,6 +15,12 @@ connection.connect((err) => {
     } else {
         app.listen(PORT, () => {
             console.log(`App listening on port ${PORT}`);
+            let newburg = new Burger("test burger");
+            newburg.addBurger();
+
+            let burgers = Burger.selectBurgers().then((results) => {
+                console.log(results);
+            });
         });
     }
 });

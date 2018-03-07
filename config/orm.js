@@ -1,35 +1,41 @@
 const connection = require("./connection");
 
 const orm = {
-    selectAll: function () {
-        const query = "SELECT * FROM BURGERS";
-        connection.query(query, (err, results) => {
-            if (err) {
-                throw err;
-            } else {
-                return results;
-            }
+    selectAll: function (tableName) {
+        const query = "SELECT * FROM ??";
+        return new Promise((resolve, reject) => {
+            connection.query(query, [tableName], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
         });
     },
-    insertOne: function (burger) {
-        const query = "INSERT INTO BURGER (burger_name, devoured) SET ?";
-        connection.query(query, burger, (err, results) => {
-            if (err) {
-                throw err;
-            } else {
-                return results;
-            }
+    insertOne: function (tableName, obj) {
+        const query = `INSERT INTO BURGERS SET ?`;
+        return new Promise((resolve, reject) => {
+            connection.query(query, obj, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
         });
     },
-    updateOne: function (burgerId) {
-        const query = "UPDATE BURGER SET DEVOURED = 'Y' WHERE ID = ?";
-        connection.query(query, [id], (err, results) => {
-            if (err) {
-                throw err;
-            } else {
-                return results;
-            }
-        })
+    updateOne: function (tableName, updCol, updVal, idCol, objId) {
+        const query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        return new Promise((resolve, reject) => {
+            connection.query(query, [tableName, updCol, updVal, idCol, objId], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
     }
 };
 
