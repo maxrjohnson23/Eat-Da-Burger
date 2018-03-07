@@ -17,22 +17,23 @@ Burger.prototype.create = function () {
             devoured: this.devoured
         }).then((results) => {
             console.log(results);
+            // Get db generated ID
             this.id = results.insertId;
-            resolve(results)
+            resolve()
         }).catch(err => {
             reject(err)
         });
     });
 };
 
-// Burger.prototype.updateDevoured = function() {
-//     return new Promise((resolve, reject) => {
-//         orm.updateOne("BURGERS", "DEVOURED", true, "ID", this.id) {
-//
-//
-//         }
-//     })
-// }
+Burger.prototype.updateDevoured = function () {
+    return new Promise((resolve, reject) => {
+        this.devoured = true;
+        orm.updateOne("BURGERS", "DEVOURED", this.devoured, "ID", this.id).then((results) => {
+            resolve(results)
+        }).catch(err => reject(err));
+    })
+}
 
 
 module.exports = Burger;
