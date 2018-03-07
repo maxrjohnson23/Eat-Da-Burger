@@ -16,7 +16,10 @@ connection.connect((err) => {
         app.listen(PORT, () => {
             console.log(`App listening on port ${PORT}`);
             let newburg = new Burger("test burger");
-            newburg.addBurger();
+            newburg.create().then(() => {
+                console.log(newburg);
+            });
+
 
             let burgers = Burger.selectBurgers().then((results) => {
                 console.log(results);
