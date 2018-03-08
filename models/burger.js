@@ -16,10 +16,11 @@ Burger.prototype.create = function () {
             burger_name: this.name,
             devoured: this.devoured
         }).then((results) => {
-            console.log(results);
             // Get db generated ID
             this.id = results.insertId;
-            resolve()
+            resolve({
+                id: this.id
+            });
         }).catch(err => {
             reject(err)
         });
