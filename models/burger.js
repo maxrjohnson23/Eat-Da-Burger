@@ -10,6 +10,7 @@ Burger.selectBurgers = function () {
         orm.selectAll("BURGERS").then((results) => resolve(results)).catch(err => reject(err));
     });
 };
+
 Burger.prototype.create = function () {
     return new Promise((resolve, reject) => {
         orm.insertOne("BURGERS", {

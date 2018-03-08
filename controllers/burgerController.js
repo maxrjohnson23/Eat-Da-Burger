@@ -1,6 +1,12 @@
 const routes = require("express").Router();
 const Burger = require("../models/burger");
 
+routes.get("/api/burger", (req, res) => {
+    Burger.selectBurgers().then((result) => {
+        res.send(result);
+    })
+});
+
 routes.post("/api/burger", (req, res) => {
     if (!req.body.name) {
         res.status(500).send("Burger name is required")
@@ -9,6 +15,10 @@ routes.post("/api/burger", (req, res) => {
     newBurger.create().then((id) => {
         res.send(id);
     });
+});
+
+routes.put("/api/burger/:id", (req, res) => {
+
 });
 
 
