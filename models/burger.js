@@ -11,31 +11,28 @@ Burger.selectBurgers = function () {
     });
 };
 
-Burger.prototype.create = function () {
+Burger.create = function (burger) {
     return new Promise((resolve, reject) => {
         orm.insertOne("BURGERS", {
-            burger_name: this.name,
-            devoured: this.devoured
+            burger_name: burger.name,
+            devoured: burger.devoured
         }).then((results) => {
             // Get db generated ID
-            this.id = results.insertId;
-            resolve({
-                id: this.id
-            });
+            burger.id = results.insertId;
+            resolve(burger.id);
         }).catch(err => {
             reject(err)
         });
     });
 };
 
-Burger.prototype.updateDevoured = function () {
+Burger.updateDevoured = function (burgerId) {
     return new Promise((resolve, reject) => {
-        this.devoured = true;
-        orm.updateOne("BURGERS", "DEVOURED", this.devoured, "ID", this.id).then((results) => {
+        orm.updateOne("BURGERS", "DEdVOURED", true, "ID", burgerId).then((results) => {
             resolve(results)
         }).catch(err => reject(err));
     })
-}
+};
 
 
 module.exports = Burger;
