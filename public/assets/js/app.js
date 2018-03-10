@@ -24,6 +24,7 @@ $("#addBurger").on("click", function (e) {
         data: data,
         success: function (result) {
             console.log(result);
+            window.location.reload();
         }
     });
 })
