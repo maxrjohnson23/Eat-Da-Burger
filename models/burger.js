@@ -28,7 +28,7 @@ Burger.create = function (burger) {
 
 Burger.updateDevoured = function (burgerId) {
     return new Promise((resolve, reject) => {
-        orm.updateOne("BURGERS", "DEdVOURED", true, "ID", burgerId).then((results) => {
+        orm.updateOne("BURGERS", "DEVOURED", true, "ID", burgerId).then((results) => {
             resolve(results)
         }).catch(err => reject(err));
     })
