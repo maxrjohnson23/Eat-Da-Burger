@@ -5,7 +5,12 @@
     <div class="card-body">
 
         {{#each burgers}}
-            <div>{{id}} {{burger_name}}</div>
+            <div>
+                <p>{{id}} {{burger_name}}
+                    <button class="btn btn-sm btn-outline-secondary m-1">Devour</button>
+                </p>
+            </div>
+
         {{/each }}
 
     </div>
