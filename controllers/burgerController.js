@@ -29,7 +29,7 @@ routes.post("/api/burger", (req, res) => {
 });
 
 routes.put("/api/burger/:id", (req, res) => {
-
+    console.log('Hit update route ' + req.params.id);
 });
 
 

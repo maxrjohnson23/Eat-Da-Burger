@@ -6,11 +6,12 @@
 
         {{#each burgers}}
             <div>
-                <p>{{id}} {{burger_name}}
-                    <button class="btn btn-sm btn-outline-secondary m-1">Devour</button>
+                <p>{{id}}.) {{burger_name}}
+                    <button class="btn btn-sm btn-outline-secondary m-1 devour-btn"
+                            data-burger="{{id}}">Devour
+                    </button>
                 </p>
             </div>
-
         {{/each }}
 
     </div>
