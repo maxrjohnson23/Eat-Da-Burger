@@ -1,5 +1,12 @@
-<h2>burger list</h2>
-{{#each burgers}}
-    <li>{{id}} {{burger_name}}</li>
-{{/each }}
-</ul>
+<div class="card">
+    <div class="card-header">
+        Devoured
+    </div>
+    <div class="card-body">
+
+        {{#each burgers}}
+            <div>{{id}} {{burger_name}}</div>
+        {{/each }}
+
+    </div>
+</div>

@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Add Routes
-app.use(express.static(__dirname + '/app/public'));
+app.use(express.static(__dirname + '/public'));
 app.use('/', require('./controllers/burgerController'));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
