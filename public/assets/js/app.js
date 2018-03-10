@@ -3,14 +3,27 @@ function devourBurger(id) {
         url: `/api/burger/${id}`,
         type: "PUT",
         success: function () {
-            console.log('DDDDOONNNE');
+            window.location.reload();
         }
-    }).done(function () {
-        console.log('Done');
-    });
+    })
 }
 
 $(".devour-btn").on("click", function () {
     let id = $(this).attr("data-burger");
     devourBurger(id);
 });
+
+$("#addBurger").on("click", function (e) {
+    e.preventDefault();
+    const data = {
+        name: $("#burgerName").val()
+    };
+    $.ajax({
+        type: "POST",
+        url: "api/burger",
+        data: data,
+        success: function (result) {
+            console.log(result);
+        }
+    });
+})
