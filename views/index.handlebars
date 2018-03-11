@@ -10,13 +10,14 @@
             {{> burger-list }}
         </div>
     </div>
-    <div class="row">
-        <div class="col text-centered">
-            <form action="">
-                <input type="text" id="burgerName" placeholder="Enter a burger name"/>
-                <button type="submit" id="addBurger">Add</button>
-            </form>
-
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Burger Name" aria-label="Burger Name" id="burgerName">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="button" id="addBurger">Add</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,19 @@
+.card-header {
+    background-color: #EE6E73;
+    color: #fff;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #343A40;
+    border-top: 5px solid #EE6E73;
+}
+
+footer small {
+    line-height: 40px;
+    color: #D2B773;
+    font-size: 12px;
+}

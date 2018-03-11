@@ -1,14 +1,16 @@
 <div class="card">
-    <div class="card-header">
-        New Burgers
+    <div class="card-header text-center">
+        <h4>New Burgers</h4>
     </div>
     <div class="card-body">
 
         {{#each undevouredList}}
             <div>
                 <p>{{id}}.) {{burger_name}}
-                    <button class="btn btn-sm btn-outline-secondary m-1 devour-btn"
-                            data-burger="{{id}}">Devour
+                    <button class="btn btn-sm btn-outline-danger m-1 devour-btn float-right"
+                            data-burger="{{id}}">Devour<i class="fas fa-utensils ml-2"></i>
+
+
                     </button>
                 </p>
             </div>
