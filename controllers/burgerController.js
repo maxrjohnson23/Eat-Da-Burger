@@ -2,8 +2,8 @@ const routes = require("express").Router();
 const Burger = require("../models/burger");
 
 routes.get("/", function (req, res) {
-    Burger.selectBurgers().then((result) => {
-        console.log(result);
+    Burger.selectBurgers().then(result => {
+        // Populate results based on devoured status
         let devoured = result.filter(b => b.devoured === 1);
         let undevoured = result.filter(b => b.devoured === 0);
         res.render("index", {
@@ -14,24 +14,26 @@ routes.get("/", function (req, res) {
 });
 
 routes.get("/api/burger", (req, res) => {
-    Burger.selectBurgers().then((result) => {
+    Burger.selectBurgers().then((err, result) => {
+        if(err) {
+            res.status(500).send({error: "Could not retrieve burgers"});
+        }
         res.send(result);
     })
 });
 
 routes.post("/api/burger", (req, res) => {
     if (!req.body.name) {
-        res.status(500).send("Burger name is required")
+        res.status(500).send({error: "Burger name is required"});
     }
     let newBurger = new Burger(req.body.name);
-    Burger.create(newBurger).then((id) => {
+    Burger.create(newBurger).then(id => {
         res.json(id);
     });
 });
 
 routes.put("/api/burger/:id", (req, res) => {
-    console.log('Hit update route ' + req.params.id);
-    Burger.updateDevoured(req.params.id).then((result) => {
+    Burger.updateDevoured(req.params.id).then(result => {
         res.json(result);
     });
 });

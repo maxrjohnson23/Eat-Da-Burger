@@ -1,5 +1,4 @@
 const connection = require("./config/connection");
-const Burger = require("./models/burger");
 const express = require('express');
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
@@ -13,12 +12,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 app.use('/', require('./controllers/burgerController'));
 
+// Set up handlebars view engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
 // Connect to the database and start express server
-connection.connect((err) => {
+connection.connect(err => {
     if (err) {
         console.log(err);
     } else {
