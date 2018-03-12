@@ -1,3 +1,12 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 45px;
+}
+
 .card-header {
     background-color: #EE6E73;
     color: #fff;
@@ -6,6 +15,7 @@
 footer {
     position: absolute;
     bottom: 0;
+    height: 45px;
     text-align: center;
     width: 100%;
     background-color: #343A40;
