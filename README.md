@@ -8,8 +8,8 @@ A burger devouring app using the MVC architectural pattern
     * HTTP Requests (GET, POST)
     * Routes and static content
     * Body Parser
+    * Handlebars engine integration
 * Node.js
-    * Requests module
     * Backend API calls
 * Handlebars Templates and Layouts
 * MySQL / JawsDB
