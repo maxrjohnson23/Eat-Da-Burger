@@ -39,19 +39,23 @@ A burger devouring app using the MVC architectural pattern
    
 ### Application Design
 <p align="center">
-   <img src="samples/architecture.png?raw=true" alt="Application Design" width="600px" align="center" />
+   <img src="samples/architecture.png?raw=true" alt="Application Design" width="800px" align="center" />
 </p>
 
 
-### Using the Application
-1. Navigate to the repository folder and run server.js to start
+### Using the Application Locally
+1. Create a MySQL database and run the following files to set up the schema
+    * db/schema.sql
+    * db/seeds.sql
+2. Configure the database connection settings in config/connection.js
+3. Navigate to the repository folder and run server.js to start
 
    ```
    $ node server.js
    ```
 
-2. Navigate to localhost:3000
+4. Navigate to localhost:3000 in the browser
 
-3. Add burgers to the New Burgers List and eat them!
+5. Add burgers to the New Burgers List and eat them!
 
    
