@@ -23,7 +23,7 @@ A burger devouring app using the MVC architectural pattern
 ### Prerequisites
 1. Node.js - Eat-Da-Burger requires Node to be installed
 
-2. To install node visit [Node.js Website](https://nodejs.org/en/ "Node.js")and install node for your operating system.
+2. To install node visit [Node.js Website](https://nodejs.org/en/ "Node.js") and install node for your operating system.
 
 
 ### Installation
